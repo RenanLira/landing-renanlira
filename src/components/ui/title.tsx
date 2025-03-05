@@ -9,13 +9,13 @@ interface TitleProps extends PropsWithChildren, React.HTMLAttributes<HTMLHeading
 }
 
 const titleVariants = cva(
-    "text-secondary-foreground font-title flex items-center gap-2",
+    "font-title flex items-center gap-2",
     {
         variants: {
             variant: {
-                h1: "text-4xl font-bold",
-                h2: "text-3xl font-semibold",
-                h3: "text-2xl font-semibold",
+                h1: "text-2xl md:text-3xl font-bold",
+                h2: "text-xl md:text-2xl font-semibold",
+                h3: "text-xl font-semibold",
                 h4: "text-xl font-medium",
                 h5: "text-lg font-medium",
                 h6: "text-base font-medium",
