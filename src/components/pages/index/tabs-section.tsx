@@ -6,6 +6,7 @@ import { PortifolioTab } from "./portifolio-tab";
 import { ExperienciasTab } from "./experiencias-tab";
 
 
+
 export function TabsSection() {
     return (
         <section className="">
