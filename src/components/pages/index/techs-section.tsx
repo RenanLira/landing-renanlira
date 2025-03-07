@@ -24,13 +24,12 @@ export function TechsSection() {
 
     return (
         <section className="">
-            <div className="flex flex-col gap-10 w-full items-center">
-
+            <div className="flex flex-col gap-8 w-full items-center">
                 <Title tag="h2" className="self-start">
                     <FrameIcon className="text-9xl" />
                     Tecnologias
                 </Title>
-                <div className="grid grid-cols-[repeat(auto-fit,100px)] w-full items-center justify-center gap-9">
+                <div className="grid grid-cols-[repeat(auto-fit,100px)] w-full items-center justify-center gap-9 bg-muted p-4 rounded-lg">
                     {
                         technologies.map((tech, index) => (
                             <div key={index} className="flex flex-col items-center gap-2">
