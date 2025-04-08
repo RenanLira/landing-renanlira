@@ -1,12 +1,24 @@
+"use client";
+
 import Image from "next/image";
 import Safira from "@/assets/bg_me.jpg";
 import { Title } from "@/components/ui/title";
+import { motion } from "motion/react";
+
 
 export function AboutMeSection() {
 
 
     return (
-        <section className="bg-muted p-6 rounded-lg">
+        <motion.section
+            className="bg-muted p-6 rounded-lg"
+            initial={{ opacity: 0, y: -60 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{
+                once: true,
+            }}
+            transition={{ duration: 0.3 }}
+        >
             <div className="flex flex-col md:flex-row gap-9 items-center">
                 <div className="overflow-hidden rounded-lg shadow-lg h-14 relative md:flex-[1] md:h-full">
                     <Image
@@ -29,6 +41,6 @@ export function AboutMeSection() {
                     </p>
                 </div>
             </div>
-        </section>
+        </motion.section>
     )
 }

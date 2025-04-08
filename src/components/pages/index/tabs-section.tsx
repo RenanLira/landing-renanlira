@@ -55,7 +55,7 @@ export function TabsSection() {
                             <TabsTrigger key={index} value={item.value} className="relative z-10">
                                 <div className="flex items-center gap-2">
                                     <item.icon className="w-6 h-6" />
-                                    <Title>{item.label}</Title>
+                                    <Title tag="h2">{item.label}</Title>
                                 </div>
                             </TabsTrigger>
                         ))

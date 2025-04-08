@@ -7,10 +7,17 @@ import { AboutMeSection } from "@/components/pages/index/aboutme-section";
 
 
 
+async function getTechs() {
+	const response = await fetch('http://localhost:3000/api/technologies/by-types')
+
+	const data = await response.json()
+
+	return data
+}
 
 
-export default function Home() {
-
+export default async function Home() {
+	const techsData = await getTechs();
 
 	return (
 		<div className={"max-w-[1120px] mx-auto min-h-screen flex flex-col px-3.5 xl:px-0"}>
@@ -25,10 +32,9 @@ export default function Home() {
 
 				<AboutMeSection />
 
+				<TechsSection data={techsData} />
+
 				<TabsSection />
-
-				<TechsSection />
-
 
 			</main >
 		</div >

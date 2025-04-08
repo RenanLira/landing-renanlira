@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Poppins } from "next/font/google";
 import { ThemeProvider } from 'next-themes'
 import "./globals.css";
+import { Toaster } from "@/components/ui/sonner";
 
 const poppins = Poppins({
 	variable: "--font-poppins",
@@ -32,10 +33,12 @@ export default function RootLayout({ children }: Readonly<{
 			<body>
 				<ThemeProvider
 					enableSystem
+
 					defaultTheme={"system"}
 					attribute={"class"}
 				>
 					{children}
+					<Toaster />
 				</ThemeProvider>
 			</body>
 		</html>

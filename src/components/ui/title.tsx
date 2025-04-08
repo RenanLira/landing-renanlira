@@ -9,7 +9,7 @@ interface TitleProps extends PropsWithChildren, React.HTMLAttributes<HTMLHeading
 }
 
 const titleVariants = cva(
-    "font-title flex items-center gap-2",
+    "font-title",
     {
         variants: {
             variant: {
