@@ -1,13 +1,7 @@
 import EditIdTechPage from "@/components/pages/admin/tech/edit/[id]/edit-id-page";
+import { GetTechnologieService } from "@/services/technologies/get-technologie-service";
 
 
-async function getTech(id: string) {
-    const response = await fetch('http://localhost:3000/api/technologies/' + id)
-
-    const data = await response.json()
-
-    return data
-}
 
 interface EditTechPageProps {
     params: Promise<{
@@ -19,7 +13,7 @@ export default async function EditTechPage({ params }: EditTechPageProps) {
 
     const { id } = await params
 
-    const data = await getTech(id)
+    const data = await GetTechnologieService(id)
 
     return (
         <EditIdTechPage tech={data} />
