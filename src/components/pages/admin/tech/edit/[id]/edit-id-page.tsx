@@ -16,7 +16,7 @@ import { toast } from "sonner";
 
 
 interface EditTechPageProps {
-    tech: typeof Technology.schema.obj
+    tech: Technology
 }
 
 export default function EditIdTechPage({ tech }: EditTechPageProps) {

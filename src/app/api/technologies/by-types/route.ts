@@ -1,11 +1,11 @@
 import { connectDB } from "@/lib/database";
-import { Technology } from "@/models/technology";
+import { TechnologyEntity } from "@/models/entities/technology-entity";
 
 
 export async function GET() {
     await connectDB()
 
-    const technologies = await Technology.find();
+    const technologies = await TechnologyEntity.find();
 
     const technologiesByType = technologies.reduce((acc, tech) => {
         if (!acc[tech.type]) {

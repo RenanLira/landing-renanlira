@@ -1,5 +1,5 @@
 import { connectDB } from "@/lib/database";
-import { Technology } from "@/models/technology";
+import { TechnologyEntity } from "@/models/entities/technology-entity";
 
 
 
@@ -10,7 +10,7 @@ export async function GET(request: Request, { params }: {
 
     const { id } = await params;
 
-    const technologies = await Technology.findById(id);
+    const technologies = await TechnologyEntity.findById(id);
 
     if (!technologies) {
         return Response.json({ error: 'Tecnologia não encontrada' }, { status: 404 });
@@ -30,7 +30,7 @@ export async function PUT(request: Request, { params }: { params: Promise<{ id: 
 
     const { name, icon, knowledge, type } = body;
 
-    const technology = await Technology.findByIdAndUpdate(id, {
+    const technology = await TechnologyEntity.findByIdAndUpdate(id, {
         name,
         icon,
         knowledge,
@@ -50,7 +50,7 @@ export async function DELETE(request: Request, { params }: { params: Promise<{ i
 
     const { id } = await params;
 
-    const technology = await Technology.findByIdAndDelete(id);
+    const technology = await TechnologyEntity.findByIdAndDelete(id);
 
     if (!technology) {
         return Response.json({ error: 'Tecnologia não encontrada' }, { status: 404 });

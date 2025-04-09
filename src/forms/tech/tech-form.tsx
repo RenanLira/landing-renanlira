@@ -44,15 +44,10 @@ export function useSaveTechForm() {
     return { form, onSubmit: CreateTechnologieService };
 }
 
-export function useEditTechForm(tech: typeof Technology.schema.obj) {
+export function useEditTechForm(tech: Technology) {
     const form = useTechForm({
-        id: String(tech._id),
-        name: String(tech.name),
-        icon: String(tech.icon),
-        knowledge: Number(tech.knowledge),
-        type: tech.type as TechnologyType,
+        ...tech
     });
-
 
 
     return { form, onSubmit: UpdateTechnologieService };

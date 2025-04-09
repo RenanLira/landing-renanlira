@@ -8,10 +8,10 @@ import Link from "next/link"
 
 // This type is used to define the shape of our data.
 // You can use a Zod schema here if you want.
-export type TechnologyTableColumns = typeof Technology.schema.obj
 
 
-export const columns: ColumnDef<TechnologyTableColumns>[] = [
+
+export const columns: ColumnDef<Technology>[] = [
     {
         accessorKey: "name",
         header: "Nome",

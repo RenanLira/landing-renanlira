@@ -1,18 +1,18 @@
 import { connectDB } from "@/lib/database";
 import { NextRequest } from "next/server";
 import { Technology } from "@/models/technology";
+import { TechnologyEntity } from "@/models/entities/technology-entity";
 
 
-type ReqTechnologyDTO = Omit<typeof Technology.schema.obj, "createdAt" | "updatedAt">;
+type ReqTechnologyDTO = Omit<Technology, "createdAt" | "updatedAt">;
 
 
 export async function GET() {
     try {
         await connectDB();
-        const technologies = await Technology.find();
+        const technologies = await TechnologyEntity.find();
         return Response.json(technologies);
-    } catch (error) {
-        console.error('Erro ao buscar tecnologias:', error);
+    } catch {
         return Response.json({ error: 'Erro ao buscar tecnologias' }, { status: 500 });
     }
 }
@@ -22,7 +22,7 @@ export async function POST(request: NextRequest) {
         await connectDB();
         const data: ReqTechnologyDTO = await request.json();
 
-        const technology = new Technology({
+        const technology = new TechnologyEntity({
             ...data,
             createdAt: new Date(),
             updatedAt: new Date(),

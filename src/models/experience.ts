@@ -1,16 +1,12 @@
-import { Schema, model } from "mongoose"
-import { Technology } from "./technology"
+import { Technology } from "./technology";
 
-
-const ExperienceSchema = new Schema({
-    title: { type: String, required: true },
-    company: { type: String, required: true },
-    location: { type: String, required: true },
-    startDate: { type: Date, required: true },
-    endDate: { type: Date },
-    actual: { type: Boolean, required: true },
-    description: { type: String, required: true },
-    technologies: { type: [Technology], required: true },
-})
-
-export const Experience = model("Experience", ExperienceSchema)
+export class Experience {
+    title!: string;
+    company!: string;
+    location!: string;
+    startDate!: Date;
+    endDate?: Date;
+    actual!: boolean;
+    description!: string;
+    technologies!: Technology[];
+}
