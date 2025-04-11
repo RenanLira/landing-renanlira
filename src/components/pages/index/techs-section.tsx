@@ -2,13 +2,13 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { CircleProgress } from "@/components/ui/circle-progress";
 import { Title } from "@/components/ui/title";
-import { ITechnology } from "@/models/technology";
+import { Technology } from "@/models/technology";
 import { FrameIcon, Server } from "lucide-react";
 
 
 interface TechsSectionProps {
     data: {
-        [key: string]: ITechnology[]
+        [key: string]: Technology[]
     }
 }
 
@@ -41,7 +41,7 @@ export function TechsSection({ data }: TechsSectionProps) {
 
                                     </CardHeader>
                                     <CardContent>
-                                        <div className="flex flex-wrap gap-4 items-center justify-between">
+                                        <div className="flex flex-wrap gap-4 items-center justify-around">
                                             {type.map((tech, index) => (
                                                 <div key={index} className="flex flex-col items-center">
                                                     <div className="relative flex items-center justify-center w-16 h-16">

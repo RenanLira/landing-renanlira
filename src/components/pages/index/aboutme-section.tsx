@@ -11,7 +11,7 @@ export function AboutMeSection() {
 
     return (
         <motion.section
-            className="bg-muted p-6 rounded-lg"
+            className="bg-muted rounded-lg"
             initial={{ opacity: 0, y: -60 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{
@@ -19,18 +19,16 @@ export function AboutMeSection() {
             }}
             transition={{ duration: 0.3 }}
         >
-            <div className="flex flex-col md:flex-row gap-9 items-center">
-                <div className="overflow-hidden rounded-lg shadow-lg h-14 relative md:flex-[1] md:h-full">
-                    <Image
-                        alt="Safira"
-                        src={Safira}
-                        width={1280}
-                        height={720}
-                        className="h-max w-auto -translate-y-12 md:translate-0"
-                    />
-                </div>
+            <div className="flex w-full h-auto relative">
+                <Image
+                    alt="Safira"
+                    src={Safira}
+                    width={1280}
+                    height={720}
+                    className="absolute w-full h-full object-cover rounded-lg top-0 left-0"
+                />
 
-                <div className="flex-[3] flex flex-col gap-4">
+                <div className="p-6 flex flex-col gap-4 z-10 bg-white/40 dark:bg-black/40 backdrop-blur-xs rounded-md">
                     <Title tag="h2">
                         I am Developer
                     </Title>
