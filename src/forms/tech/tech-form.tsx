@@ -39,8 +39,6 @@ function useTechForm(defaultValues?: z.infer<typeof TechFormSchema>) {
 export function useSaveTechForm() {
     const form = useTechForm();
 
-
-
     return { form, onSubmit: CreateTechnologieService };
 }
 
