@@ -5,7 +5,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
-const TechFormSchema = z.object({
+export const TechFormSchema = z.object({
     _id: z.string().optional(),
     name: z.string().nonempty("O nome é obrigatório"),
     icon: z
