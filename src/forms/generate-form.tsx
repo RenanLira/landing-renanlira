@@ -5,6 +5,7 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Slider } from "@/components/ui/slider";
+import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import { ReactNode } from "react";
 import { Path, UseFormReturn } from "react-hook-form";
 import { TypeOf, z } from "zod";
@@ -139,6 +140,28 @@ export function GenerateForm<T extends z.AnyZodObject>({
                                                 max={100}
 
                                             />
+                                        )
+
+                                    case 'checkbox':
+                                        return (
+                                            <ToggleGroup type="multiple">
+                                                {getEnumValues(name).map((value: string) => (
+                                                    <ToggleGroupItem
+                                                        key={value}
+                                                        value={value}
+                                                        onClick={() => {
+                                                            if (field.value.includes(value)) {
+                                                                field.onChange(field.value.filter((v: string) => v !== value))
+                                                            } else {
+                                                                field.onChange([...field.value, value])
+                                                            }
+                                                        }}
+                                                        className={`w-1/2 text-center ${field.value.includes(value) ? 'bg-blue-500 text-white' : 'bg-gray-200 text-gray-700'}`}
+                                                    >
+                                                        {value}
+                                                    </ToggleGroupItem>
+                                                ))}
+                                            </ToggleGroup>
                                         )
                                     default:
                                         return (
