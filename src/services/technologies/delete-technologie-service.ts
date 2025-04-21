@@ -3,7 +3,7 @@
 import { revalidatePath } from "next/cache";
 
 export async function DeleteTechnologieService(id: string) {
-    const response = await fetch('http://localhost:3000/api/technologies/' + id, {
+    const response = await fetch(`${process.env.API_URL}/api/technologies/` + id, {
         method: "DELETE",
     });
 

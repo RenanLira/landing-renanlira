@@ -1,7 +1,7 @@
 "use server";
 
 export async function GetAllTechnologiesService() {
-    const response = await fetch('http://localhost:3000/api/technologies', {
+    const response = await fetch(`${process.env.API_URL}/api/technologies`, {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
