@@ -1,35 +1,50 @@
 "use client";
 
 import { MoonIcon, SunIcon } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { useTheme } from "next-themes";
+import { Switch } from "./switch";
+import { cva } from "class-variance-authority";
+import { cn } from "@/lib/utils";
+
+
+const iconVariants = cva(
+	"size-4 transition-opacity duration-300 ease-in", {
+	variants: {
+		variant: {
+			disabled: "opacity-0",
+			enabled: "opacity-100",
+		}
+	},
+	defaultVariants: {
+		variant: "disabled"
+	}
+})
 
 
 export function ButtonTheme() {
 
-	const { theme, setTheme } = useTheme()
+	const { setTheme, resolvedTheme } = useTheme()
 
-	function handleTheme() {
-		console.log(theme)
-		if (theme == 'light') {
-			setTheme('dark')
-			return
-		}
 
-		setTheme('light')
-	}
 
 	return (
-		<Button
-			className={"rounded-full"}
-			size={"icon"}
-			onClick={handleTheme}
-		>
-			{theme == 'light' ? (
-				<SunIcon className="text-[#E6A15D]" />
-			) : (
-				<MoonIcon className={"text-[#88C0A7]"} />
-			)}
-		</Button>
+		<div className="flex items-center gap-2">
+			<SunIcon
+				className={cn(iconVariants({ variant: resolvedTheme === 'light' ? 'enabled' : undefined }))}
+			/>
+			<Switch
+				onCheckedChange={(checked) => {
+					if (checked) {
+						setTheme('dark')
+					} else {
+						setTheme('light')
+					}
+				}}
+				checked={resolvedTheme === 'dark'}
+			/>
+			<MoonIcon
+				className={cn(iconVariants({ variant: resolvedTheme === 'dark' ? 'enabled' : undefined }))}
+			/>
+		</div>
 	)
 }
